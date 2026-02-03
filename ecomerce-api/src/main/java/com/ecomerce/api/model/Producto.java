@@ -4,11 +4,9 @@
  */
 
 package com.ecomerce.api.model;
-
-import java.util.concurrent.atomic.AtomicLong;
 public class Producto{
 //id
-	private AtomicLong id;
+	private Long id;
 //nombre
 	private String nombre;
 //precio(+)	
@@ -62,7 +60,7 @@ public Producto(){}
 		return this.descripcion;
 	}
 
-	public AtomicLong getId(){
+	public Long getId(){
 		return this.id;
 	}
         public void setNombre(String n){
@@ -76,7 +74,7 @@ public Producto(){}
 	public void setDescripcion(String d){
 		this.descripcion=d;
 	}
-	public void setId(AtomicLong id){
+	public void setId(Long id){
 		this.id=id;
 	}
  /*PRE: existe el producto al que has llamado

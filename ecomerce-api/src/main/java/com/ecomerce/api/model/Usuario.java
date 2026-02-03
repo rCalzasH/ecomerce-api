@@ -3,9 +3,8 @@
  *esta clase debe definir los usarios y dichos atributos 
  */
 package com.ecomerce.api.model;
-import java.util.concurrent.atomic.AtomicLong;
 public class Usuario{
-	private AtomicLong id; //id Usuario
+	private Long id; //id Usuario
 	private String password; //contraeña
 	private String email; //email del usuario
 	private Rol rol; //rol del usuario, que será comprador seguramnete
@@ -25,7 +24,7 @@ public class Usuario{
 	//@returns id
 	 
 	
-	public AtomicLong getId(){
+	public Long getId(){
 		return this.id;
 	}
 
@@ -59,24 +58,28 @@ public class Usuario{
 	// @param String
 	  
 
-	public void setId(AtomicLong id){
-		this.id=id;
+	public Usuario setId(Long id){
+		this.id=id;return this;
 	}
 	
 	//@param String
 
 
-	public void setPassword(String p){
-		this.password=p;
+	public Usuario setPassword(String p){
+		this.password=p;return this;
 	}
 	
 	//@param String
-	public void setEmail(String e){
-		this.email=e;
+	public Usuario setEmail(String e){
+		this.email=e;return this;
 	}
 	//@param Rol
-	public void setRol(Rol r){	
-		this.rol=r;
+	public Usuario setRol(Rol r){	
+		this.rol=r;return this;
+	}
+	//@param String
+	public Usuario setPathPic(String pp){	
+		this.pathPic=pp;return this;
 	}
 	//@returns string del usuario
 	@Override 

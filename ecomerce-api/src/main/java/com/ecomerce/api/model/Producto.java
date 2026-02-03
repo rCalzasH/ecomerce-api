@@ -2,10 +2,10 @@
  *rCalzas
  * esta clase debe definifr los atributos de los productos que posteriormente;
  */
-import java.util.concurrent.atomic.AtomicLong;
+
 package com.ecomerce.api.model;
 
-
+import java.util.concurrent.atomic.AtomicLong;
 public class Producto{
 //id
 	private AtomicLong id;

@@ -30,28 +30,19 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     public Usuario updateId(Long id, Usuario usuario){
-        Usuario u=usuarios.stream().filter(user -> user.equals(usuario)).findFirst().get();
-        u.setId(id);
-        return u;
-         
+        return usuarios.stream().filter(user -> user.equals(usuario)).findFirst().get().setId(id);    
     }
 
     public Usuario updateEmail(String email, Usuario usuario){
-        Usuario u=usuarios.stream().filter(user -> user.equals(usuario)).findFirst().get();
-        u.setEmail(email);
-        return u;
+        return usuarios.stream().filter(user -> user.equals(usuario)).findFirst().get().setEmail(email);
     }
 
     public Usuario updateRol(Rol rol, Usuario usuario){
-        Usuario u=usuarios.stream().filter(user -> user.equals(usuario)).findFirst().get();
-        u.setRol(rol);
-        return u;    
+        return usuarios.stream().filter(user -> user.equals(usuario)).findFirst().get().setRol(rol); 
     }
 
     public Usuario updatePic(String pathPic, Usuario usuario){
-        Usuario u=usuarios.stream().filter(user -> user.equals(usuario) ).findFirst().get();
-        u.setPathPic(pathPic);
-        return u;    
+       return usuarios.stream().filter(user -> user.equals(usuario) ).findFirst().get().setPathPic(pathPic);
     }
 
     public void deleteById(Long id){

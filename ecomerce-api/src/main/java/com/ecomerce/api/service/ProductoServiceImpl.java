@@ -33,20 +33,17 @@ public class ProductoServiceImpl implements ProductoService {
     
     public Producto actualizarProductoId(Long id, Producto producto){
         Producto prod = productos.stream().filter(pro->pro.equals(producto)).findFirst().get();
-        prod.setId(id);
-        return prod;
+        return prod.setId(id);
         }
     
     public Producto actualizarProductoPrecio(double precio, Producto producto){
         Producto prod = productos.stream().filter(pro->pro.equals(producto)).findFirst().get();
-        prod.setPrecio(precio);
-        return prod;
+        return prod.setPrecio(precio); 
         }
     
     public Producto actualizarProductoDescripcion(String descripcion, Producto producto){
         Producto prod = productos.stream().filter(pro->pro.equals(producto)).findFirst().get();
-        prod.setDescripcion(descripcion);
-        return prod;
+        return prod.setDescripcion(descripcion);
         }
 
     public void borrarProductoPorId(Long id){

@@ -63,19 +63,19 @@ public Producto(){}
 	public Long getId(){
 		return this.id;
 	}
-        public void setNombre(String n){
-		this.nombre=n;
+    public Producto setNombre(String n){
+		this.nombre=n;return this;
 	}
  	
-	public void setPrecio(double p){
-		this.precio=p;
+	public Producto setPrecio(double p){
+		this.precio=p;return this;
 	}
 	
-	public void setDescripcion(String d){
-		this.descripcion=d;
+	public Producto setDescripcion(String d){
+		this.descripcion=d;return this;
 	}
-	public void setId(Long id){
-		this.id=id;
+	public Producto setId(Long id){
+		this.id=id;return this;
 	}
  /*PRE: existe el producto al que has llamado
  *

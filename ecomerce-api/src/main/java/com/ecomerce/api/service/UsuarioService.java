@@ -12,15 +12,15 @@ public interface UsuarioService {
 
     Optional<Usuario> findByEmail(String email);
 
-    Usuario save(Usuario usuario);
+    Optional<Usuario> save(Usuario usuario);
 
-    Usuario updateId(Long id, Usuario usuario);
+    Optional<Usuario> updateId(Long id, Usuario usuario);
 
-    Usuario updateEmail(String email, Usuario usuario);
+    Optional<Usuario> updateEmail(String email, Usuario usuario);
 
-    Usuario updateRol(Rol rol, Usuario usuario);
+    Optional<Usuario> updateRol(Rol rol, Usuario usuario);
 
-    Usuario updatePic(String pathPic,Usuario usuario);
+    Optional<Usuario> updatePic(String pathPic,Usuario usuario);
 
     void deleteById(Long id);
 

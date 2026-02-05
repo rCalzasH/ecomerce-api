@@ -19,16 +19,16 @@ public class ProductoController {
     public ProductoController(ProductoService p ){
         this.p=p;
     }
-    public Optional<Producto> encontrarPorId(@RequestParam Long id){
-        return p.encontrarPorId(id);
+    public ResponseEntity<Producto> encontrarPorId(@RequestParam Long id){
+        return p.encontrarPorId(id).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
     @PostMapping
-	public Producto guardarProducto (@RequestBody Producto producto){
-        
+	public ResponseEntity<Producto> guardarProducto (@RequestBody Producto producto){
+        return p.guardarProducto(producto).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
     @PatchMapping("/id")
     public Producto actualizarProductoId(@RequestParam Long id, @RequestBody Producto producto){
-
+        return p.actualizarProductoId(id, producto).map()
     }
     @PatchMapping("/precio")
 	public Producto actualizarProductoPrecio(@RequestParam double precio, @RequestBody Producto producto){

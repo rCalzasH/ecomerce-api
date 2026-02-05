@@ -23,35 +23,34 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarios.stream().filter(user -> user.getEmail().equals(email)).findFirst();
     }
 
-    public Usuario save(Usuario usuario){
+    public Optional<Usuario> save(Usuario usuario){
         usuario.setId(idCont.getAndIncrement());
         usuarios.add(usuario);
-        return usuario;
+        return usuarios.stream().filter(user -> user.equals(usuario)).findFirst();
     }
 
-    public Usuario updateId(Long id, Usuario usuario){
-        Usuario u=usuarios.stream().filter(user -> user.equals(usuario)).findFirst().get();
-        u.setId(id);
-        return u;
-         
-    }
-
-    public Usuario updateEmail(String email, Usuario usuario){
-        Usuario u=usuarios.stream().filter(user -> user.equals(usuario)).findFirst().get();
-        u.setEmail(email);
+    public Optional<Usuario> updateId(Long id, Usuario usuario){
+        Optional<Usuario> u= usuarios.stream().filter(user -> user.equals(usuario)).findFirst();
+        u.get().setId(id);
         return u;
     }
 
-    public Usuario updateRol(Rol rol, Usuario usuario){
-        Usuario u=usuarios.stream().filter(user -> user.equals(usuario)).findFirst().get();
-        u.setRol(rol);
-        return u;    
+    public Optional<Usuario> updateEmail(String email, Usuario usuario){
+        Optional<Usuario> u= usuarios.stream().filter(user -> user.equals(usuario)).findFirst();
+        u.get().setEmail(email);
+        return u;
     }
 
-    public Usuario updatePic(String pathPic, Usuario usuario){
-        Usuario u=usuarios.stream().filter(user -> user.equals(usuario) ).findFirst().get();
-        u.setPathPic(pathPic);
-        return u;    
+    public Optional<Usuario> updateRol(Rol rol, Usuario usuario){
+        Optional<Usuario> u= usuarios.stream().filter(user -> user.equals(usuario)).findFirst();
+        u.get().setRol(rol);
+        return u;
+    }
+
+    public Optional<Usuario> updatePic(String pathPic, Usuario usuario){
+        Optional<Usuario> u= usuarios.stream().filter(user -> user.equals(usuario)).findFirst();
+        u.get().setPathPic(pathPic);
+        return u;  
     }
 
     public void deleteById(Long id){

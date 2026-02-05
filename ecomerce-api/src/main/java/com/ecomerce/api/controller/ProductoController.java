@@ -15,31 +15,31 @@ import org.springframework.web.bind.annotation.*;
 
 public class ProductoController {
     private final ProductoService p;
-    public Optional<Producto> encontrarPorId(Long id){
-        try {
-            return
-        } catch (Exception e) {
-            
-        }
+    //inyectamos dependencias en el controller 
+    public ProductoController(ProductoService p ){
+        this.p=p;
     }
-    
-	public Producto guardarProducto (Producto producto){
-
+    public Optional<Producto> encontrarPorId(@RequestParam Long id){
+        return p.encontrarPorId(id);
     }
-
-    public Producto actualizarProductoId(Long id, Producto producto){
-
+    @PostMapping
+	public Producto guardarProducto (@RequestBody Producto producto){
+        
     }
-
-	public Producto actualizarProductoPrecio(double precio, Producto producto){
+    @PatchMapping("/id")
+    public Producto actualizarProductoId(@RequestParam Long id, @RequestBody Producto producto){
 
     }
-
-	public Producto actualizarProductoDescripcion(String descripcion, Producto producto){
+    @PatchMapping("/precio")
+	public Producto actualizarProductoPrecio(@RequestParam double precio, @RequestBody Producto producto){
 
     }
+    @PatchMapping("/descripcion")
+	public Producto actualizarProductoDescripcion(@RequestParam String descripcion,@RequestBody Producto producto){
 
-    public void borrarProductoPorId(Long id){
+    }
+    @DeleteMapping
+    public void borrarProductoPorId(@RequestParam Long id){
 
     }
 }

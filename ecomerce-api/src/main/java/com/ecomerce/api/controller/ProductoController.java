@@ -28,19 +28,19 @@ public class ProductoController {
         return p.guardarProducto(producto).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
     @PatchMapping("/id")
-    public Producto actualizarProductoId(@RequestParam Long id, @RequestBody Producto producto){
-        return p.actualizarProductoId(id, producto).map(ResponseEntity :: ok  )
+    public ResponseEntity<Producto> actualizarProductoId(@RequestParam Long id, @RequestBody Producto producto){
+        return p.actualizarProductoId(id, producto).map(ResponseEntity :: ok  ).orElse(ResponseEntity.notFound().build());
     }
     @PatchMapping("/precio")
-	public Producto actualizarProductoPrecio(@RequestParam double precio, @RequestBody Producto producto){
-
+	public ResponseEntity<Producto> actualizarProductoPrecio(@RequestParam double precio, @RequestBody Producto producto){
+        return p.actualizarProductoPrecio(precio, producto).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
     @PatchMapping("/descripcion")
-	public Producto actualizarProductoDescripcion(@RequestParam String descripcion,@RequestBody Producto producto){
-
+	public ResponseEntity<Producto> actualizarProductoDescripcion(@RequestParam String descripcion,@RequestBody Producto producto){
+        return p.actualizarProductoDescripcion(descripcion, producto).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
     @DeleteMapping
     public void borrarProductoPorId(@RequestParam Long id){
-
+        p.borrarProductoPorId(id);
     }
 }

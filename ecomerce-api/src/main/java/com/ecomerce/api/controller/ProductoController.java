@@ -4,6 +4,7 @@ import com.ecomerce.api.model.Producto;
 import com.ecomerce.api.service.ProductoService;
 
 import java.util.Optional;
+import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +29,7 @@ public class ProductoController {
     }
     @PatchMapping("/id")
     public Producto actualizarProductoId(@RequestParam Long id, @RequestBody Producto producto){
-        return p.actualizarProductoId(id, producto).map()
+        return p.actualizarProductoId(id, producto).map(ResponseEntity :: ok  )
     }
     @PatchMapping("/precio")
 	public Producto actualizarProductoPrecio(@RequestParam double precio, @RequestBody Producto producto){

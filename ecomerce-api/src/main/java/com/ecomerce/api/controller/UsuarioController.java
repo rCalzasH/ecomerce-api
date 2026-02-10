@@ -28,13 +28,13 @@ public class UsuarioController{
     }
 
     @GetMapping("/{id}")
-    public Optional<Usuario> getById(@PathVariable Long id){
-        return usuarioService.findById(id);
+    public ResponseEntity<Usuario> getById(@PathVariable Long id){
+        return usuarioService.findById(id).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Optional<Usuario> save(@RequestBody Usuario usuario){
-        return usuarioService.save(usuario);
+    public ResponseEntity<Usuario> save(@RequestBody Usuario usuario){
+        return usuarioService.save(usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
@@ -43,26 +43,26 @@ public class UsuarioController{
     }
 
     @PatchMapping("/{id}")
-    public Optional<Usuario> updateId(@RequestParam Long id,@RequestBody Usuario usuario){
-        return usuarioService.updateId(id,usuario);
+    public ResponseEntity<Usuario> updateId(@RequestParam Long id,@RequestBody Usuario usuario){
+        return usuarioService.updateId(id,usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PatchMapping("/{email}")
-    public Optional<Usuario> updateEmail(@RequestParam String email,@RequestBody Usuario usuario){
-        return usuarioService.updateEmail(email,usuario);
+    public ResponseEntity<Usuario> updateEmail(@RequestParam String email,@RequestBody Usuario usuario){
+        return usuarioService.updateEmail(email,usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PatchMapping("/{Rol}")
-    public Optional<Usuario> updateRol(@RequestParam Rol rol,@RequestBody Usuario usuario){
-        return usuarioService.updateRol(rol,usuario);
+    public ResponseEntity<Usuario> updateRol(@RequestParam Rol rol,@RequestBody Usuario usuario){
+        return usuarioService.updateRol(rol,usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PatchMapping("/{id}")
-    public Optional<Usuario> updatePic(@RequestParam String pathPic,@RequestBody Usuario usuario){
-        return usuarioService.updatePic(pathPic,usuario);
+    public ResponseEntity<Usuario> updatePic(@RequestParam String pathPic,@RequestBody Usuario usuario){
+        return usuarioService.updatePic(pathPic,usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
-    public boolean existsByEmail(@RequestParam String email){
-        return usuarioService.existsByEmail(email);
+    public ResponseEntity<Boolean> existsByEmail(@RequestParam String email){
+        return ResponseEntity.ok(usuarioService.existsByEmail(email));
     }
 }

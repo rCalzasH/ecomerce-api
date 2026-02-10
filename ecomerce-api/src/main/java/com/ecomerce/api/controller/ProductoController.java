@@ -3,7 +3,7 @@ package com.ecomerce.api.controller;
 import com.ecomerce.api.model.Producto;
 import com.ecomerce.api.service.ProductoService;
 
-
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -20,6 +20,10 @@ public class ProductoController {
     //inyectamos dependencias en el controller 
     public ProductoController(ProductoService p ){
         this.p=p;
+    }    
+
+    public List<Producto> todosLosProductos(){
+        return p.todosLosProductos();
     }
     public ResponseEntity<Producto> encontrarPorId(@RequestParam Long id){
         return p.encontrarPorId(id).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());

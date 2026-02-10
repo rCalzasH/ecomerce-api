@@ -33,27 +33,27 @@ public class UsuarioController{
         return usuarioService.save(usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping
     public void delete(@PathVariable Long id){
         usuarioService.deleteById(id);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/id")
     public ResponseEntity<Usuario> updateId(@RequestParam Long id,@RequestBody Usuario usuario){
         return usuarioService.updateId(id,usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PatchMapping("/{email}")
+    @PatchMapping("/email")
     public ResponseEntity<Usuario> updateEmail(@RequestParam String email,@RequestBody Usuario usuario){
         return usuarioService.updateEmail(email,usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PatchMapping("/{Rol}")
+    @PatchMapping("/Rol")
     public ResponseEntity<Usuario> updateRol(@RequestParam Rol rol,@RequestBody Usuario usuario){
         return usuarioService.updateRol(rol,usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/pathPic")
     public ResponseEntity<Usuario> updatePic(@RequestParam String pathPic,@RequestBody Usuario usuario){
         return usuarioService.updatePic(pathPic,usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }

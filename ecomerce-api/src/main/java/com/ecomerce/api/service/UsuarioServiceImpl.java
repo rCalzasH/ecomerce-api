@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.stereotype.Service;
+
 import com.ecomerce.api.model.Rol;
 import com.ecomerce.api.model.Usuario;
-
+@Service
 public class UsuarioServiceImpl implements UsuarioService {
     private List<Usuario> usuarios = new ArrayList<>();
     private AtomicLong idCont = new AtomicLong(1);

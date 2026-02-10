@@ -9,8 +9,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.ecomerce.api.model.Producto;
+import org.springframework.stereotype.Service;
 
+import com.ecomerce.api.model.Producto;
+@Service
 public class ProductoServiceImpl implements ProductoService {
     private AtomicLong idCont = new AtomicLong(1);
     private List<Producto> productos = new ArrayList<>();

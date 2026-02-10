@@ -21,13 +21,9 @@ public class UsuarioController{
     public UsuarioController(UsuarioService usuarioService){
         this.usuarioService=usuarioService;
     }
-
-    @GetMapping
     public List<Usuario> getAll(){
         return usuarioService.findAll();
     }
-
-    @GetMapping("/{id}")
     public ResponseEntity<Usuario> getById(@PathVariable Long id){
         return usuarioService.findById(id).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }

@@ -25,6 +25,7 @@ public class ProductoController {
     public List<Producto> todosLosProductos(){
         return p.todosLosProductos();
     }
+    
     public ResponseEntity<Producto> encontrarPorId(@RequestParam Long id){
         return p.encontrarPorId(id).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }

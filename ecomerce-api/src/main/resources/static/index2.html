@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-commerce moderno - Los mejores productos al mejor precio">
+    <meta name="author" content="Tu Nombre">
+    <title>ShopHub - Tu tienda online</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>🛒 ShopHub</h1>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Buscar productos...">
+                        <button id="search-btn">🔍</button>
+                    </div>
+                    <button class="btn-login" id="btn-login">Iniciar Sesión</button>
+                    <div class="cart-icon">
+                        <span class="cart-badge" id="cart-count">0</span>
+                        🛒
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Descubre productos increíbles</h2>
+                <p>Las mejores ofertas en tecnología, moda y más</p>
+                <button class="btn-primary" id="btn-shop-now">Comprar Ahora</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="categories" id="categorias">
+        <div class="container">
+            <h2 class="section-title">Categorías Populares</h2>
+            <div class="categories-grid" id="categories-grid">
+                <!-- Se cargan dinámicamente desde JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="products" id="productos">
+        <div class="container">
+            <div class="products-header">
+                <h2 class="section-title">Productos Destacados</h2>
+                <div class="filter-controls">
+                    <select id="filter-category">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                    <select id="sort-by">
+                        <option value="default">Ordenar por</option>
+                        <option value="price-asc">Precio: Menor a Mayor</option>
+                        <option value="price-desc">Precio: Mayor a Menor</option>
+                        <option value="name">Nombre A-Z</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Loading spinner -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Cargando productos...</p>
+            </div>
+            
+            <!-- Grid de productos -->
+            <div class="products-grid" id="products-grid">
+                <!-- Los productos se cargan dinámicamente desde la API -->
+            </div>
+            
+            <!-- Mensaje si no hay productos -->
+            <div class="no-products" id="no-products" style="display: none;">
+                <p>No se encontraron productos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARRITO (Modal) -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Mi Carrito</h3>
+                <button class="btn-close" id="close-cart">&times;</button>
+            </div>
+            <div class="modal-body" id="cart-items">
+                <!-- Items del carrito -->
+            </div>
+            <div class="modal-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="total-price" id="total-price">€0.00</span>
+                </div>
+                <button class="btn-primary" id="btn-checkout">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN/REGISTRO (Modal) -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>Iniciar Sesión</h3>
+                <button class="btn-close" id="close-login">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">Entrar</button>
+                </form>
+                <div class="form-footer">
+                    <p>¿No tienes cuenta? <a href="#" id="show-register">Regístrate</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p>📧 info@shophub.com</p>
+                    <p>📞 +34 123 456 789</p>
+                    <p>📍 Madrid, España</p>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" placeholder="Mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ShopHub</h4>
+                    <p>Tu tienda online de confianza</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#categorias">Categorías</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopHub. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT AL FINAL -->
+    <script src="js/app.js"></script>
+</body>
+</html>

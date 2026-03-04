@@ -4,6 +4,7 @@
  */
 package com.ecomerce.api.model;
 public class Usuario{
+	private String name;
 	private Long id; //id Usuario
 	private String password; //contraeña
 	private String email; //email del usuario
@@ -20,10 +21,17 @@ public class Usuario{
 		this.pathPic=pa;
 	}
 	
-	
+	public Usuario (String name, String p, String email, Rol rol){
+		this.password=p;
+		this.name=name;
+		this.email=email;
+		this.rol=rol;
+	}
 	//@returns id
 	 
-	
+	public String getName(){
+		return this.name;
+	}
 	public Long getId(){
 		return this.id;
 	}
@@ -64,7 +72,9 @@ public class Usuario{
 	
 	//@param String
 
-
+	public Usuario setName(String name ){
+		this.name=name;return this;
+	}
 	public Usuario setPassword(String p){
 		this.password=p;return this;
 	}

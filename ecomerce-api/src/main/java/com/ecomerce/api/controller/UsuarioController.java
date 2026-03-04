@@ -17,7 +17,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/usuarios")
 public class UsuarioController{
     private final UsuarioService usuarioService;
-
+    @PostMapping
+    public Usuario LogIn(String password, String name, String email, ){
+        try { 
+            usuarioService.valdName(name);
+            Usuario user = new Usuario(password,email,USUARIO, )
+            return usuarioService.save(Usuario);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        }
+    }
     public UsuarioController(UsuarioService usuarioService){
         this.usuarioService=usuarioService;
     }

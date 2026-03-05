@@ -13,11 +13,11 @@ public class Usuario{
 	//constructores
 	public Usuario(){}
 	
-	public Usuario( String p, String email, Rol rol, String pa){
+	public Usuario( String p, String email, String pa){
 		//el id lo genera el sistema pq debe se unico y servir para poder identificar al cliente 
 		this.password=p;
 		this.email=email;
-		this.rol=rol;
+		this.rol=rol.usuario;
 		this.pathPic=pa;
 	}
 	

@@ -18,13 +18,15 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController{
     private final UsuarioService usuarioService;
     @PostMapping
-    public Usuario LogIn(String password, String name, String email, ){
+    public ResponseEntity<Usuario> Resgister(@RequestParam String password,@RequestParam String name,@RequestParam String email){
         try { 
-            usuarioService.valdName(name);
-            Usuario user = new Usuario(password,email,USUARIO, )
-            return usuarioService.save(Usuario);
+            usuarioService.valName(name);
+            Usuario user = new Usuario(name, password,email);
+            usuarioService.save(user);
+            return ResponseEntity.ok(user);
         } catch (IllegalArgumentException e) {
             System.out.println(e);
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
     }
     public UsuarioController(UsuarioService usuarioService){
@@ -35,11 +37,6 @@ public class UsuarioController{
     }
     public ResponseEntity<Usuario> getById(@PathVariable Long id){
         return usuarioService.findById(id).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
-    }
-
-    @PostMapping
-    public ResponseEntity<Usuario> save(@RequestBody Usuario usuario){
-        return usuarioService.save(usuario).map(ResponseEntity :: ok).orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping

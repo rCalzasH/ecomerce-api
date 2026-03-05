@@ -5,5 +5,5 @@
 package com.ecomerce.api.model;
 
 //de moemnto empezamos solo con estos roles, si hiciera falta se ampliaría:)
-public enum Rol {USUARIO, ADMINISTRADOR}
+public enum Rol {usuario, administrador}
 

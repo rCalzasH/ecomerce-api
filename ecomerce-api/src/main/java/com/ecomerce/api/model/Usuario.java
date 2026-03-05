@@ -13,13 +13,19 @@ public class Usuario{
 	//constructores
 	public Usuario(){}
 	
-	public Usuario( String p, String email, String pa){
-		//el id lo genera el sistema pq debe se unico y servir para poder identificar al cliente 
-		this.password=p;
-		this.email=email;
-		this.rol=rol.usuario;
-		this.pathPic=pa;
+	public Usuario(String name, String password, String email){
+		this.name = name;
+		this.password = password;
+		this.email = email;
+		this.rol = Rol.usuario;
 	}
+	// public Usuario( String p, String email, String pa){
+	// 	//el id lo genera el sistema pq debe se unico y servir para poder identificar al cliente 
+	// 	this.password=p;
+	// 	this.email=email;
+	// 	this.rol=Rol.usuario;
+	// 	this.pathPic=pa;
+	// }
 	
 	public Usuario (String name, String p, String email, Rol rol){
 		this.password=p;

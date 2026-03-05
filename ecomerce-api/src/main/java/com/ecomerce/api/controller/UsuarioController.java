@@ -19,7 +19,7 @@ import com.ecomerce.api.model.Usuario;
 import com.ecomerce.api.service.UsuarioService;
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/usuarios")
 public class UsuarioController{
     private final UsuarioService usuarioService;
     @PostMapping

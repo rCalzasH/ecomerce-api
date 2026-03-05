@@ -63,7 +63,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarios.stream().filter(user -> user.getEmail().equals(email)).count() > 0;
     }
     public int valName(String name){
-        if(name.length()<(4)|| !name.contains("@") || !name.contains("-")|| !name.contains("+") || !name.contains("{") || !name.contains("}")|| !name.contains("[")|| !name.contains("]")){
+        if(name.length()<(4)|| name.contains("@") || name.contains("-")|| name.contains("+") || name.contains("{") || name.contains("}")|| name.contains("[")|| name.contains("]")){
             throw new IllegalArgumentException("El formato del nombre de usuario es inválido");
         }
         return 1;
